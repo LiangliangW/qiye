@@ -18,7 +18,7 @@ class Login extends Base
     //验证用户身份
     public function check(Request $request)
     {
-        //设置status
+        //设置初始status
         $status = 0;
 
         //获取表单数据并保存在变量中

@@ -25,8 +25,7 @@
                                 <i class="layui-icon">&#xe612;</i>
                             </label>
                             <div class="layui-input-inline">
-                                <input type="text" id="username" name="username" required="" lay-verify="username"
-                                autocomplete="off" placeholder="username" class="layui-input">
+                                <input type="text" id="username" name="username" required="" placeholder="username" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item x-login-box">
@@ -34,12 +33,11 @@
                                 <i class="layui-icon">&#xe628;</i>
                             </label>
                             <div class="layui-input-inline">
-                                <input type="password" id="password" name="password" required="" lay-verify="pass"
-                                autocomplete="off" placeholder="******" class="layui-input">
+                                <input type="password" id="password" name="password" required="" placeholder="******" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item" id="loginbtn">
-                            <button  id="loginbtn" class="layui-btn" lay-filter="save" lay-submit="" type="button">
+                            <button class="layui-btn" lay-filter="save" lay-submit="" type="button" id="loginbtn">
                                 登 录
                             </button>
                         </div>
@@ -83,16 +81,16 @@
             $("#loginbtn").on('click',function () {
                 $.ajax({
                     type:'POST',
-                    url:"{:url('login/check')}",
-                    data:$(".layui-form").serialize(),
-                    dataType:"json",
-                    success:function (data) {
-                        if (data.success == 1) {
+                    url: "{:url('login/check')}",
+                    data: $(".layui-form").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status == 1) {
                             alert(data.message);
-                            window.location.herf="{:url('index/index')}";
+                            window.location.href="{:url('index/index')}";
                         } else {
                             alert(data.message);
-                            window.location.herf="{:url('login/index')}";
+                            window.location.href="{:url('login/index')}";
                         }
                     }
                 })
