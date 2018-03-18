@@ -4,16 +4,18 @@ namespace app\admin\controller;
 
 use app\admin\common\Base;
 use think\Request;
+use app\admin\model\Admin as AdminModel;
 
 class Admin extends Base
 {
-    /**
-     * 显示资源列表
-     *
-     * @return \think\Response
-     */
+    //显示管理员首页
     public function index()
     {
+        //读取管理员基本信息
+        $admin = AdminModel::get(['username' => 'admin']);
+        //将当前管理员的信息赋值给模板
+        $this->view->assign('admin', $admin);
+        //渲染模板
         return $this -> view -> fetch('admin_list');
     }
 

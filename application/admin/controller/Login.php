@@ -12,6 +12,7 @@ class Login extends Base
     //渲染登录界面
     public function index()
     {
+        $this->alreadyLogin();
         return $this -> view -> fetch('login');
     }
 
